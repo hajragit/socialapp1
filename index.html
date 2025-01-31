@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Welcome to Social App</h1>
+
+    <!-- Create New User Section -->
+    <div class="mt-4">
+        <h2>Create a New User</h2>
+        <form action="/create_user" method="POST">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter Username" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Create User</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- Create New Post Section -->
+    <div class="mt-4">
+        <h2>Create a New Post</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="user_id">User ID:</label>
+                <input type="number" id="user_id" name="user_id" class="form-control" placeholder="Enter User ID" required>
+            </div>
+            <div class="form-group">
+                <label for="title">Post Title:</label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="Enter Post Title" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" class="form-control" rows="4" placeholder="Write something..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="file">Upload Media:</label>
+                <input type="file" id="file" name="file" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Post</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- Retrieve Posts Section -->
+    <div class="mt-4">
+        <h2>Retrieve Posts</h2>
+        <!-- Retrieve Specific Post by ID -->
+        <form action="/post" method="GET" class="mb-3">
+            <div class="form-group">
+                <label for="post_id">Get Specific Post by Post ID:</label>
+                <input type="number" id="post_id" name="post_id" class="form-control" placeholder="Enter Post ID">
+            </div>
+            <button type="submit" class="btn btn-info">Get Post</button>
+        </form>
+
+        <!-- Retrieve All Posts by User ID -->
+        <form action="/user/posts" method="GET" class="mb-3">
+            <div class="form-group">
+                <label for="user_id">Get All Posts by User ID:</label>
+                <input type="number" id="user_id" name="user_id" class="form-control" placeholder="Enter User ID">
+            </div>
+            <button type="submit" class="btn btn-info">Get Posts by User</button>
+        </form>
+
+        <!-- Retrieve All Posts -->
+        <form action="/posts" method="GET" class="mb-3">
+            <button type="submit" class="btn btn-info">Get All Posts</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- Manage Posts Section -->
+    <div class="mt-4">
+        <h2>Manage Posts</h2>
+        <form action="/post/delete" method="POST" class="mb-3">
+            <div class="form-group">
+                <label for="delete_post_id">Delete Post by Post ID:</label>
+                <input type="number" id="delete_post_id" name="post_id" class="form-control" placeholder="Enter Post ID">
+            </div>
+            <button type="submit" class="btn btn-danger">Delete Post</button>
+        </form>
+    </div>
+
+    <hr>
+
+    <!-- Retrieve Users Section -->
+    <div class="mt-4">
+        <h2>Retrieve Users</h2>
+        <!-- Retrieve Specific User by User ID -->
+        <form action="/user" method="GET" class="mb-3">
+            <div class="form-group">
+                <label for="user_id">Get Specific User by User ID:</label>
+                <input type="number" id="user_id" name="user_id" class="form-control" placeholder="Enter User ID">
+            </div>
+            <button type="submit" class="btn btn-info">Get User</button>
+        </form>
+
+        <!-- Retrieve All Users -->
+        <form action="/users" method="GET" class="mb-3">
+            <button type="submit" class="btn btn-info">Get All Users</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
